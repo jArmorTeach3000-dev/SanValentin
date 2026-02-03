@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>¿Quieres ser mi San Valentín?</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.contenedor {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+img {
+    border-radius: 10px;
+}
+
+.mensaje {
+    font-size: 22px;
+    color: #ff006e;
+    margin-top: 15px;
+}
+.imagen-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.check {
+    position: absolute;
+    font-size: 26px;
+    color: green;
+    font-weight: bold;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+    
+
+    <!-- IMAGEN -->
+   <div class="imagen-wrapper">
+    <img src="heartimg.jpg" usemap="#mapaCarta" width="350">
+
+    <!-- CHECKS -->
+    <span id="checkSi" class="check" style="display:none;">✔</span>
+    <span id="checkNo" class="check" style="display:none;">✔</span>
+</div>
+
+
+
+    <!-- MAPA DE ZONAS CLICKEABLES -->
+    <map name="mapaCarta">
+        <!-- CUADRO SÍ -->
+        <area shape="rect" coords="90,215,150,255" href="#" onclick="respuestaSi(); return false;">
+        
+        <!-- CUADRO NO -->
+        <area shape="rect" coords="190,215,250,255" href="#" onclick="respuestaNo(); return false;">
+    </map>
+
+    <div class="mensaje" id="mensaje"></div>
+</div>
+
+<script>
+
+function respuestaSi() {
+    // Mensaje y fondo
+    document.getElementById("mensaje").textContent = "Sabía que dirías que sí 😍💖";
+    document.body.style.background = "linear-gradient(135deg, #ff758c, #ff7eb3)";
+
+
+    // Checks
+    const checkSi = document.getElementById("checkSi");
+    const checkNo = document.getElementById("checkNo");
+
+    checkNo.style.display = "none";   // ❌ quitar el NO
+    checkSi.style.display = "block";  // ✅ poner el SÍ
+
+    checkSi.style.top = "207px";
+    checkSi.style.left = "100px";
+}
+
+function respuestaNo() {
+    alert("¿Segura? 🥺 Piénsalo otra vez");
+    document.getElementById("mensaje").textContent = "";
+
+    const checkSi = document.getElementById("checkSi");
+    const checkNo = document.getElementById("checkNo");
+
+    checkSi.style.display = "none";   // ❌ quitar el SÍ
+    checkNo.style.display = "block";  // ✅ poner el NO
+
+    checkNo.style.top = "207px";
+    checkNo.style.left = "180px";
+}
+</script>
+
+</script>
+
+</body>
+</html>
